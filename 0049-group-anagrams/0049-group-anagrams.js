@@ -4,24 +4,21 @@
  */
 var groupAnagrams = function(strs) {
     
- let map = {}
 
-for (let i = 0; i < strs.length; i++) {
-    const sortedString = strs[i].split('').sort().join('');
-    
-    if (!map[sortedString]) {
-        map[sortedString] = [strs[i]];
-    } else {
-        map[sortedString].push(strs[i]);
+    const word  = new Map();
+    for (const str of strs ){
+        const sortedWord = str.split('').sort().join('');
+        if(word.has(sortedWord)){
+        word.get(sortedWord).push(str);
+        }else{
+            word.set(sortedWord,[str]);
+        }
     }
+    const resultArray = Array.from(word.values());
+   return resultArray
 }
-
-return Object.values(map);
     
     
-    
-    
-};
 
 
 
