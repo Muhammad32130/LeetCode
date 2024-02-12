@@ -10,8 +10,8 @@ var longestConsecutive = function(nums) {
         if (!numSet.has(num - 1)) {
             let currentNum = num;
             let currentStreak = 1;
+
             while (numSet.has(currentNum + 1)) {
-                console.log(currentNum)
                 currentNum++;
                 currentStreak++;
             }
@@ -21,4 +21,4 @@ var longestConsecutive = function(nums) {
     }
 
     return longestStreak;
-};
+}
